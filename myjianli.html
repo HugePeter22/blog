@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>何雨杰简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, -20px) rotate(180deg); }
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            border: 4px solid rgba(255,255,255,0.3);
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .title {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideIn 0.8s ease forwards;
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ff6b6b;
+            display: inline-block;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .skill:hover::before {
+            left: 100%;
+        }
+        
+        .skill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .experience-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            border-radius: 10px;
+            border-left: 4px solid #ff6b6b;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .job-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .company {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .contact-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .dark-theme {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+        }
+        
+        .dark-theme .container {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .dark-theme .section-title {
+            color: white;
+        }
+        
+        .dark-theme .experience-item {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+        }
+        
+        .dark-theme .job-title {
+            color: white;
+        }
+        
+        .dark-theme .company {
+            color: #bdc3c7;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <div class="header">
+            <div class="avatar">JS</div>
+            <div class="name">何雨杰</div>
+            <div class="title">前端开发 · 自学转行</div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title">技能专长</div>
+                <div class="skills">
+                    <div class="skill" onclick="animateSkill(this)">JavaScript</div>
+                    <div class="skill" onclick="animateSkill(this)">React</div>
+                    <div class="skill" onclick="animateSkill(this)">Vue.js</div>
+                    <div class="skill" onclick="animateSkill(this)">Node.js</div>
+                    <div class="skill" onclick="animateSkill(this)">TypeScript</div>
+                    <div class="skill" onclick="animateSkill(this)">HTML/CSS</div>
+                    <div class="skill" onclick="animateSkill(this)">MongoDB</div>
+                    <div class="skill" onclick="animateSkill(this)">Git</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">项目经验</div>
+                <div class="experience-item" onclick="expandExperience(this)">
+                    <div class="job-title">个人博客网站</div>
+                    <div class="company">技术栈：React, Node.js, MongoDB</div>
+                    <div class="description">从零开始构建个人博客，包含文章发布、评论系统、用户管理等功能。独立完成前后端开发，部署上线。</div>
+                </div>
+                
+                <div class="experience-item" onclick="expandExperience(this)">
+                    <div class="job-title">待办事项管理应用</div>
+                    <div class="company">技术栈：Vue.js, LocalStorage, CSS3</div>
+                    <div class="description">开发响应式待办事项应用，支持任务分类、优先级设置、数据持久化存储。注重用户体验设计。</div>
+                </div>
+                
+                <div class="experience-item" onclick="expandExperience(this)">
+                    <div class="job-title">天气预报小程序</div>
+                    <div class="company">技术栈：JavaScript, API集成, 微信小程序</div>
+                    <div class="description">集成第三方天气API，实现城市搜索、天气预报、生活指数等功能。学习了API调用和数据处理。</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">学习经历</div>
+                <div class="experience-item">
+                    <div class="job-title">前端开发自学</div>
+                    <div class="company">2023年至今 | 持续学习中</div>
+                    <div class="description">通过ChatGPT、Claude、YouTube站等平台系统学习前端技术，完成多个实战项目，具备独立开发能力。</div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">计算机相关专业</div>
+                    <div class="company">湖南地质中学 | 2019-2023</div>
+                    <div class="description">在线学习了数据结构、算法、数据库等基础知识，为转入前端开发打下了良好基础。</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">联系方式</div>
+                <div class="contact-info">
+                    <div class="contact-item" onclick="copyToClipboard('hyj666hh88@gmail.com')">
+                        📧 hyj666hh88@gmail.com
+                    </div>
+                    <div class="contact-item" onclick="copyToClipboard('17772734511')">
+                        📱 +8617772734511
+                    </div>
+                    <div class="contact-item" onclick="window.open('https://github.com/HugePeter22', '_blank')">
+                        🐙 GitHub
+                    </div>
+                    <div class="contact-item" onclick="copyToClipboard('湖南省长沙市望城')">
+                        📍 湖南省长沙市望城
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.querySelector('.theme-toggle');
+            
+            body.classList.toggle('dark-theme');
+            button.textContent = body.classList.contains('dark-theme') ? '☀️' : '🌙';
+            
+            // 添加主题切换动画
+            body.style.transition = 'all 0.3s ease';
+            setTimeout(() => {
+                body.style.transition = '';
+            }, 300);
+        }
+        
+        function animateSkill(element) {
+            element.style.transform = 'scale(1.1) rotate(5deg)';
+            element.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
+            
+            setTimeout(() => {
+                element.style.transform = '';
+                element.style.background = '';
+            }, 300);
+        }
+        
+        function expandExperience(element) {
+            const description = element.querySelector('.description');
+            const isExpanded = element.classList.contains('expanded');
+            
+            if (!isExpanded) {
+                element.classList.add('expanded');
+                description.style.maxHeight = description.scrollHeight + 'px';
+                description.style.opacity = '1';
+            } else {
+                element.classList.remove('expanded');
+                description.style.maxHeight = '0';
+                description.style.opacity = '0';
+            }
+        }
+        
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('已复制到剪贴板: ' + text);
+            });
+        }
+        
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #333;
+                color: white;
+                padding: 15px 25px;
+                border-radius: 25px;
+                font-size: 14px;
+                z-index: 1000;
+                opacity: 0;
+                transition: all 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateX(-50%) translateY(0)';
+            }, 10);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(-50%) translateY(-20px)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 2000);
+        }
+        
+        // 页面加载完成后添加一些动态效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为技能标签添加随机颜色
+            const skills = document.querySelectorAll('.skill');
+            const colors = [
+                'linear-gradient(45deg, #667eea, #764ba2)',
+                'linear-gradient(45deg, #f093fb, #f5576c)',
+                'linear-gradient(45deg, #4facfe, #00f2fe)',
+                'linear-gradient(45deg, #43e97b, #38f9d7)',
+                'linear-gradient(45deg, #fa709a, #fee140)',
+                'linear-gradient(45deg, #a8edea, #fed6e3)',
+                'linear-gradient(45deg, #ff9a9e, #fecfef)',
+                'linear-gradient(45deg, #a18cd1, #fbc2eb)'
+            ];
+            
+            skills.forEach((skill, index) => {
+                skill.style.background = colors[index % colors.length];
+            });
+            
+            // 添加鼠标移动视差效果
+            document.addEventListener('mousemove', (e) => {
+                const header = document.querySelector('.header');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                header.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
